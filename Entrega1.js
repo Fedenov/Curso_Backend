@@ -19,7 +19,7 @@ class Usuario {
     this.libros.push({"nombre": nombre, "autor": autor})
   }
     getBookNames(){
-      return this.libros.map(libros => libros)
+      return this.libros.map(function (el) { return el.nombre; })
     
                              
     }
