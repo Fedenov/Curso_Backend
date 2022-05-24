@@ -18,8 +18,7 @@ class Usuario {
         this.libros.push({"nombre": nomb, "autor": aut});
     }
     getBookNames(){
-        var titulos = this.libros.map(function (el) { return el.nombre; });
-        return titulos                       
+        return this.libros.map(function(objeto) {return objeto.nombre;});                      
     }
 }
 
