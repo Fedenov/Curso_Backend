@@ -1,0 +1,1 @@
+[{"objeto":"acondicionador","ID":1}]
