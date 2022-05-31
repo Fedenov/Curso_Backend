@@ -61,3 +61,17 @@ console.log(`
     Producto de mayor precio: ${objetoMostrar.mayorPrecio.nombre}
     Precio promedio: ${objetoMostrar.precioPromedio}
 `)
+
+var moment = require('moment'); 
+/*
+function añosDiaNacimiento(fecha) {
+   return moment(fecha, "YYYYMMDD").fromNow();
+}
+console.log(añosDiaNacimiento("19940725"))*/
+
+console.log(`
+    Hoy es: ${moment().format('DD/MM/YYYY')}
+    Naci el dia: ${moment("1994-11-28")}.format('DD/MM/YYY')}
+    Desde mi nacimiento pasaron: ${moment().diff('1994-11-28', 'years')} años
+    Desde mi nacimiento pasaron: ${moment().diff('1994-11-28', 'days')} dias
+`)
