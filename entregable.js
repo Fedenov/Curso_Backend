@@ -1,4 +1,4 @@
-const fs = require("fs");
+// const fs = require("fs");
 
 // class Contenedor {
 //     constructor(archivo) {
@@ -114,7 +114,7 @@ class Contenedor {
             objeto.id = 1
             const arr = [objeto]
             await fs.promises.writeFile(`./${this.fileName}`, JSON.stringify(arr))
-            // console.log("no habia data")
+            console.log("no habia data")
             return objeto.id
         } else {
             data = JSON.parse(data);
@@ -180,20 +180,18 @@ productos.save({name: "acondicionador"}).then(id => {
     console.log(id);
 })
 
-// setTimeout(()=> {
-//     console.log("Esperar")
-// },1000)
 
-// productos.save({name: "acondicionador"}).then(id2 => console.log(id2))
+
+productos.save({name: "acondicionador"}).then(id2 => console.log(id2))
 
 // productos.deleteById(id1)
 
 // new Contenedor('productos').getById(1)
 
-//new Contenedor('productos.txt').getAll()
+// new Contenedor('productos.txt').getAll()
 // setTimeout(()=> {
 //     console.log("Esperar")
-// // },1000)
+// },1000)
 
 
-//new Contenedor('productos.txt').deleteAll()
+// new Contenedor('productos.txt').deleteAll()
