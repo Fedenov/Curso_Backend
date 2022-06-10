@@ -1,0 +1,17 @@
+[
+ {
+ "title": "Computadora",
+ "price": 100,
+ "id": 1
+ },
+ {
+ "title": "TV",
+ "price": 102,
+ "id": 2
+ },
+ {
+ "title": "ESTUFA",
+ "price": 147,
+ "id": 3
+ }
+]

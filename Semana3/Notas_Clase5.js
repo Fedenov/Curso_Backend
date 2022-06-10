@@ -46,8 +46,8 @@ productos.map((producto) => {
 });
 
 const objetoMostrar = {
-  NombresProductos: nombresProductos.join(", "),
-  precioTotal: precioTotal.toFixed(2),
+  NombresProductos: nombresProductos.join(", "), // Le agrega coma y espacio
+  precioTotal: precioTotal.toFixed(2), // Deja 2 decimales en el nro
   menorPrecio: menorPrecio,
   mayorPrecio: mayorPrecio,
   precioPromedio: (precioTotal / 6).toFixed(2),
