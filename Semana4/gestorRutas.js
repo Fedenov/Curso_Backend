@@ -7,9 +7,15 @@ const router = Router();
 const personas = [];
 const usuarios = [];
 
+router.use((req, res, next) => {
+    req.target = "llego el ruteo";
+    next();
+});
+
 router.get("/home", (req, res) => {
     //no hace falta poner /api/home porque ya esta aclarado en Notas_Clase8
     res.send("Estas en home");
+    console.log(req.target);
 });
 
 router.get("/user", (req, res) => {
@@ -22,6 +28,9 @@ router.get("/personas", (req, res) => {
 
 router.post("/personas", (req, res) => {
     const { nombre, apellido, edad } = req.body;
+    if (!nombre) {
+        return next("No mandaste nombre", req, res, next);
+    }
     personas.push({ nombre, apellido, edad });
     res.sendStatus(201);
 });
