@@ -1,79 +1,33 @@
+const APIproductos = require("./APIproductos");
 const { Router } = require("express");
 const router = Router();
-const { appendFile } = require("fs");
 
-const productos = [
-    {
-        title: "Test nombre",
-        price: "Test precio",
-        thumbnail: "alguna url",
-        id: 1,
-    },
-];
+const API = new APIproductos();
 
-router.use((req, res, next) => {
-    req.target = "llego el ruteo";
-    next();
+API.save({
+    title: "Test nombre",
+    price: "Test precio",
+    thumbnail: "alguna url",
 });
 
-router.get("/home", (req, res) => {
-    //no hace falta poner /api/home porque ya esta aclarado en Notas_Clase8
-    res.send("Estas en home");
-    console.log(req.target);
+router.get("/", (req, res) => {
+    res.json(API.getAll());
 });
 
-router.get("/api/productos", (req, res) => {
-    res.json(productos);
+router.get("/:id", (req, res) => {
+    res.json(API.getById(Number(req.params.id)));
 });
 
-router.get("/api/productos/:id", (req, res) => {
-    let encontrado = productos.find((producto) => producto.id == req.params.id);
-    let resultado;
-    if (encontrado) {
-        resultado = encontrado;
-    } else {
-        resultado = { error: "El producto no existe" };
-    }
-    res.json(resultado);
+router.post("/", (req, res) => {
+    res.json(API.save(req.body));
 });
 
-router.post("/api/productos", (req, res) => {
-    const { title, price, thumbnail } = req.body;
-    if (!title || !price || !thumbnail) {
-        return next("Hay campos incompletos");
-    } else {
-        nextId = productos.length + 1;
-        productos.push({ title, price, thumbnail, nextId });
-        res.json(productos[productos.length - 1]);
-    }
+router.put("/:id", (req, res) => {
+    res.json(API.saveById(Number(req.params.id), req.body));
 });
 
-router.put("/api/productos/:id", (req, res) => {
-    let resultado;
-    const indiceEncontrado = productos.findIndex((producto) => {
-        return producto.id == req.params.id;
-    });
-    if (indiceEncontrado === -1) {
-        resultado = { error: "El producto no existe" };
-    } else {
-        productos[indiceEncontrado] = req.body;
-        resultado = "Producto actualizado con exito";
-    }
-    res.json(resultado);
+router.delete("/:id", (req, res) => {
+    res.json(API.deleteById(Number(req.params.id)));
 });
 
-router.delete("/api/productos/:id", (req, res) => {
-    const indiceEncontrado = productos.findIndex((producto) => {
-        return producto.id == req.params.id;
-    });
-    let resultado = "";
-    if (indiceEncontrado === -1) {
-        resultado = { error: "El producto no existe" };
-    } else {
-        productos.splice(indiceEncontrado, 1);
-        resultado = "Producto eliminado con éxito";
-    }
-    res.json(resultado);
-});
-
-module.export = router;
+module.exports = router;

@@ -2,14 +2,27 @@ class APIproductos {
     constructor() {
         this.productos = [];
     }
-
     static idCount = 1;
 
-    save(objeto) {
-        objeto.id = Contenedor.idCount;
-        this.productos.push(objeto);
-        APIproductos.idCount++;
+    getAll() {
+        return this.productos;
+    }
 
+    getById(id) {
+        const objeto = this.productos.find((producto) => producto.id === id);
+        return objeto
+            ? objeto
+            : { error: `No se encontró el producto con ID ${id}` };
+    }
+
+    save(objeto) {
+        //objeto.id = APIproductos.idCount;
+        //const nextId = this.productos.length + 1;
+        //this.productos.push({ title, price, thumbnail, nextId });
+        //this.productos.push(objeto);
+        APIproductos.idCount++;
+        const nextId = idCount;
+        this.productos.push({ title, price, thumbnail, nextId });
         return objeto;
     }
 
@@ -24,17 +37,6 @@ class APIproductos {
         } else {
             return { error: `No se encontró el producto con ID ${id}` };
         }
-    }
-
-    getById(id) {
-        const objeto = this.productos.find((producto) => producto.id === id);
-        return objeto
-            ? objeto
-            : { error: `No se encontró el producto con ID ${id}` };
-    }
-
-    getAll() {
-        return this.productos;
     }
 
     deleteById(id) {
