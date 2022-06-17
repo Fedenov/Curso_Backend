@@ -1,0 +1,20 @@
+[
+ {
+ "title": "Lapiz",
+ "price": 80,
+ "thumbnail": "https://www.iconfinder.com/icons/2824443/pen_pencil_school_stationery_icon",
+ "id": 1
+ },
+ {
+ "title": "Goma",
+ "price": 120,
+ "thumbnail": "https://www.iconfinder.com/icons/1519784/colorful_eraser_office_remove_rubber_school_icon",
+ "id": 2
+ },
+ {
+ "title": "Marcador",
+ "price": 200,
+ "thumbnail": "https://www.iconfinder.com/icons/7291521/highlighter_highlight_stationery_office_school_icon",
+ "id": 3
+ }
+]
