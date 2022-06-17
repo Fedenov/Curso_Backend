@@ -16,14 +16,18 @@ class APIproductos {
     }
 
     save(objeto) {
-        //objeto.id = APIproductos.idCount;
+        objeto.id = APIproductos.idCount;
+        this.productos.push(objeto);
+        APIproductos.idCount++;
+        return objeto;
         //const nextId = this.productos.length + 1;
         //this.productos.push({ title, price, thumbnail, nextId });
-        //this.productos.push(objeto);
-        APIproductos.idCount++;
-        const nextId = idCount;
-        this.productos.push({ title, price, thumbnail, nextId });
-        return objeto;
+        // const nextId = APIproductos.idCount++;
+        // newTitulo = objeto.title;
+        // newPrice = objeto.price;
+        // newURL = objeto.thumbnail;
+        // this.productos.push({ newTitulo, newPrice, newURL, nextId });
+        // return this.productos[this.productos.length];
     }
 
     saveById(id, objeto) {

@@ -6,7 +6,7 @@ const API = new APIproductos();
 
 API.save({
     title: "Test nombre",
-    price: "Test precio",
+    price: 2,
     thumbnail: "alguna url",
 });
 

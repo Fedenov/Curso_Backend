@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const puerto = 8080;
+const ruta0 = require("./APIproductos");
 const rutas = require("./productos");
 
 app.use(express.json());
@@ -14,9 +15,10 @@ app.listen(puerto, (err) => {
     }
 });
 
-app.use("/", express.static(__dirname + "/public"));
-//app.use(express.static("public"));
-app.use("/api", rutas);
+app.use("/", express.static(__dirname + "/publico"));
+app.use(express.static("publico"));
+app.use("/api", ruta0);
+app.use("/api/productos", rutas);
 
 app.use((error, req, res, next) => {
     if (error) {

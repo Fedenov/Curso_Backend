@@ -17,7 +17,6 @@ router.use((req, res, next) => {
 });
 
 router.get("/home", (req, res) => {
-    //no hace falta poner /api/home porque ya esta aclarado en Notas_Clase8
     res.send("Estas en home");
     console.log(req.target);
 });
