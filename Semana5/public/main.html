@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <span></span>
+        <!-- para inyectar el resultado --><!-- incluir handlebars desde el CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+        <script>
+            const template = Handlebars.compile(`
+     <h1>Datos Personales</h1>
+     <ul>
+        <il>{{nombre}}</li>
+        <il>{{apellido}}</li>
+        <il>{{edad}}</li>
+    </ul>
+    `);
+
+            console.log("Template: ", template);
+
+            const html = template({
+                nombre: "Seba",
+                apellido: "Musso",
+                edad: "28",
+            }); // genera el html
+            console.log("HTML: ", html);
+            document.querySelector("body").innerHTML = html; // inyecta el resultado en la vista
+        </script>
+    </body>
+</html>
