@@ -7,25 +7,15 @@
     </head>
     <body>
         <span></span>
-        <!-- para inyectar el resultado --><!-- incluir handlebars desde el CDN -->
+        <!-- para inyectar el resultado -->
+        <!-- incluir handlebars desde el CDN -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
         <script>
-            const template = Handlebars.compile(`
-     <h1>Datos Personales</h1>
-     <ul>
-        <il>{{nombre}}</li>
-        <il>{{apellido}}</li>
-        <il>{{edad}}</li>
-    </ul>
-    `);
-
+            const template = Handlebars.compile(
+                "<h1>{{nombre}} {{apellido}}</h1>"
+            ); // compila la plantilla
             console.log("Template: ", template);
-
-            const html = template({
-                nombre: "Seba",
-                apellido: "Musso",
-                edad: "28",
-            }); // genera el html
+            const html = template({ nombre: "Federico", apellido: "Novelli" }); // genera el html
             console.log("HTML: ", html);
             document.querySelector("body").innerHTML = html; // inyecta el resultado en la vista
         </script>
