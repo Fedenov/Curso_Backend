@@ -1,0 +1,34 @@
+
+npm start server.js  fork
+npm start server.js  cluster
+
+
+
+===> FOREVER
+forever start server.js  fork
+forever start server.js  cluster
+forever list
+============
+
+
+
+===> NGINX
+
+npm start server.js  8080  fork
+npm start server.js  8081  cluster
+
+npm start server.js  8082  cluster
+npm start server.js  8083  cluster
+npm start server.js  8084  cluster
+npm start server.js  8085  cluster
+==================
+
+
+
+
+
+===>  PM2
+pm2 start server.js (modo fork)
+pm2 start server.js -i max (modo cluster de pm2)
+pm2 list
+========================
